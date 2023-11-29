@@ -39,6 +39,10 @@
 
 /* Estilos generales */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     /* TODOS LOS COLORES ESTÁN PREDEFINIDOS, LO QUE SE HACE, ES COPIARLOS
     Y COLOCARLOS EN NUEVAS 'VARIABLES'*/
@@ -407,6 +411,17 @@ header {
 /* 15 revisar igualmente, quizás se fue algo */
 /* 16 de aquí abajo */
 
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
 .hamburger {
     display: block;
     position: relative;
@@ -415,7 +430,7 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 2em;
     height: 3px;
     border-radius: 1em;
@@ -429,4 +444,48 @@ header {
     position: absolute;
     left: 0;
     right: 0;
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
+
+/* JS */
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+/* Nuevo html */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
